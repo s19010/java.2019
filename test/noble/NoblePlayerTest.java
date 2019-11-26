@@ -112,7 +112,7 @@ public class NoblePlayerTest {
 
   public static class playの動作確認 {
     private Master _master;
-    private Table _table;
+    private NobleTable _table;
     private NobleRule _rule;
     private NoblePlayer taro;
     private NoblePlayer hanako;
