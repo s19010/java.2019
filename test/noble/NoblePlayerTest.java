@@ -19,33 +19,33 @@ public class NoblePlayerTest {
   public static class コンストラクタの動作確認 {
 
     private Master _master;
-    private OldMaidTable _table;
-    private OldMaidRule _rule;
+    private NobleTable _table;
+    private NobleRule _rule;
 
     @Before
     public void setUp() throws Exception {
       _master = new Master();
-      _table = new OldMaidTable();
-      _rule = new OldMaidRule();
+      _table = new NobleTable();
+      _rule = new NobleRule();
     }
 
     @Test
     public void コンストラクタ() throws Exception{
-      OldMaidPlayer instance = new OldMaidPlayer("太郎", _master, _table, _rule);
+      NoblePlayer instance = new NoblePlayer("太郎", _master, _table, _rule);
       assertThat(instance.toString(), is("太郎"));
     }
   }
 
   public static class receiveCardの動作確認 {
     private Master _master;
-    private OldMaidTable _table;
-    private OldMaidRule _rule;
+    private NobleTable _table;
+    private NobleRule _rule;
 
     @Before
     public void setUp() throws Exception {
       _master = new Master();
-      _table = new OldMaidTable();
-      _rule = new OldMaidRule();
+      _table = new NobleTable();
+      _rule = new NobleRule();
     }
 
     @Test
@@ -57,7 +57,7 @@ public class NoblePlayerTest {
       expected.addCard(new Card(Card.SUIT_HEART, 3));
       expected.addCard(new Card(Card.SUIT_SPADE, 4));
 
-      OldMaidPlayer instance = new OldMaidPlayer("太郎", _master, _table, _rule);
+      NoblePlayer instance = new NoblePlayer("太郎", _master, _table, _rule);
       instance.receiveCard(new Card(Card.SUIT_CLUB, 1));
       instance.receiveCard(new Card(Card.SUIT_DIAMOND, 2));
       instance.receiveCard(new Card(Card.SUIT_HEART, 3));
@@ -75,7 +75,7 @@ public class NoblePlayerTest {
       expected.addCard(new Card(Card.SUIT_SPADE, 4));
       expected.addCard(new Joker());
 
-      OldMaidPlayer instance = new OldMaidPlayer("太郎", _master, _table, _rule);
+      NoblePlayer instance = new NoblePlayer("太郎", _master, _table, _rule);
       instance.receiveCard(new Card(Card.SUIT_CLUB, 1));
       instance.receiveCard(new Card(Card.SUIT_DIAMOND, 2));
       instance.receiveCard(new Card(Card.SUIT_HEART, 3));
@@ -93,7 +93,7 @@ public class NoblePlayerTest {
 
       int expected = 0; // サイズが0であることを確認
 
-      OldMaidPlayer instance = new OldMaidPlayer("太郎", _master, _table, _rule);
+      NoblePlayer instance = new NoblePlayer("太郎", _master, _table, _rule);
       // CA, D2, H3, S4, H2, D3, HA, C4
       instance.receiveCard(new Card(Card.SUIT_CLUB, 1)); // CA
       instance.receiveCard(new Card(Card.SUIT_DIAMOND, 2)); // D2
@@ -112,24 +112,24 @@ public class NoblePlayerTest {
 
   public static class playの動作確認 {
     private Master _master;
-    private OldMaidTable _table;
-    private OldMaidRule _rule;
-    private OldMaidPlayer taro;
-    private OldMaidPlayer hanako;
+    private Table _table;
+    private NobleRule _rule;
+    private NoblePlayer taro;
+    private NoblePlayer hanako;
 
     @Before
     public void setUp() throws Exception {
       _master = new Master();
-      _table = new OldMaidTable();
-      _rule = new OldMaidRule();
-      taro = new OldMaidPlayer("太郎", _master, _table, _rule);
+      _table = new NobleTable();
+      _rule = new NobleRule();
+      taro = new NoblePlayer("太郎", _master, _table, _rule);
       taro.receiveCard(new Card(Card.SUIT_DIAMOND, 1));
       taro.receiveCard(new Card(Card.SUIT_DIAMOND, 2));
       taro.receiveCard(new Card(Card.SUIT_HEART, 3));
       taro.receiveCard(new Card(Card.SUIT_SPADE, 4));
       taro.receiveCard(new Joker());
 
-      hanako = new OldMaidPlayer("花子", _master, _table, _rule);
+      hanako = new NoblePlayer("花子", _master, _table, _rule);
       hanako.receiveCard(new Card(Card.SUIT_HEART, 2));
       hanako.receiveCard(new Card(Card.SUIT_DIAMOND, 3));
       hanako.receiveCard(new Card(Card.SUIT_DIAMOND, 13));
