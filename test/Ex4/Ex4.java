@@ -11,13 +11,18 @@ class Ex4{
 		return foo;
 	}
 
-	public int [] ex4_2(int [] a){
+	public int [] ex4_2(int [] a) {
 		int[] foo = new int[a.length];
 		for(int i = 0; i < a.length; i++) {
-			foo[i] = a[i];
+			for(int j = 0; j < a.length; j++) {
+				if(a[j] > a[j+1]) {
+					int num = a[j];
+					a[j] = a[j+1];
+					a[j+1] = num;
+					return num;
+				}
+			}
 		}
-		Arrays.sort(foo, Comparator.reverseOrder());
-		return foo;
 	}
 
 	public String [] ex4_3(int [] a){
